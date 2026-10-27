@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>E-Waste Management | Anisha Gaikwad</title>
+<style>
+:root{--bg:#faf7ff;--surface:#fff;--text:#231942;--muted:#6b6485;--primary:#6d28d9;--accent:#f59e0b;--line:#e6defa;--hero:linear-gradient(135deg,#4c1d95,#7c3aed 60%,#c026d3);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-t="teal"]{--bg:#f2fbfa;--text:#0f2e2c;--muted:#4f7370;--primary:#0d9488;--accent:#f97316;--line:#cdeeea;--hero:linear-gradient(135deg,#134e4a,#0d9488 60%,#22d3ee)}
+:root[data-t="rose"]{--bg:#fff7f8;--text:#3b1320;--muted:#7a5560;--primary:#e11d48;--accent:#0ea5e9;--line:#fbd5dc;--hero:linear-gradient(135deg,#881337,#e11d48 60%,#fb923c)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15101f;--surface:#201832;--text:#f1ecff;--muted:#a79fc4;--line:#352a52}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;flex-wrap:wrap}
+header b{color:var(--primary)}
+nav{display:flex;gap:16px;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--primary)}
+.themes{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0}
+.hero{background:var(--hero);color:#fff;padding:64px 20px 72px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
+.hero p{margin:0 auto;max-width:640px;opacity:.92}
+.id{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.id span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:99px;font-size:14px}
+main{max-width:1000px;margin:0 auto;padding:0 20px 60px}
+section{margin-top:44px}
+h2{font-size:24px;margin:0 0 14px}
+h2::after{content:"";display:block;width:48px;height:4px;border-radius:4px;background:var(--accent);margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{margin:0 0 6px;font-size:16px;color:var(--primary)}
+.card p{margin:0;font-size:14px;color:var(--muted)}
+.up{border:2px dashed var(--primary);border-radius:16px;background:var(--surface);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s}
+.up.drag{background:var(--line)}
+.up b{color:var(--primary)}
+button.p{background:var(--primary);color:#fff;border:0;padding:9px 18px;border-radius:10px;font-size:14px;cursor:pointer;margin-top:12px}
+.files{margin-top:18px;display:grid;gap:10px}
+.f{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;flex-wrap:wrap}
+.f small{color:var(--muted)}
+.f button{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:13px;margin-left:6px}
+.prev{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px;display:none}
+.prev iframe,.prev img{width:100%;max-height:70vh;border:0;border-radius:8px}
+.prev iframe{height:70vh}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
+.sub{margin-top:26px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.sub h3{margin:0 0 4px;color:var(--primary);font-size:20px}
+.sub .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+.sub .up{padding:24px 16px}
+.grp{margin-top:34px}
+.grp>h3{font-size:22px;margin:0 0 4px}
+.grp>.meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+.item{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item>summary{cursor:pointer;padding:14px 16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none}
+.item>summary::-webkit-details-marker{display:none}
+.item>summary::after{content:"＋";color:var(--primary);font-size:18px}
+.item[open]>summary::after{content:"−"}
+.badge{margin-left:auto;background:var(--primary);color:#fff;border-radius:99px;font-size:12px;padding:2px 10px;font-weight:500;display:none}
+.item .body{padding:0 16px 16px}
+.item .up{padding:20px 14px}
+</style>
+</head>
+<body>
+<header>
+  <div><b>♻ E-Waste Hub</b></div>
+  <nav><a href="#about">About</a><a href="#types">Types</a><a href="#epr">EPR</a><a href="#submissions">ISA · ESE Activities</a></nav>
+  <div class="themes">Theme
+    <button class="dot" style="background:#6d28d9" data-t="violet" aria-label="Violet theme"></button>
+    <button class="dot" style="background:#0d9488" data-t="teal" aria-label="Teal theme"></button>
+    <button class="dot" style="background:#e11d48" data-t="rose" aria-label="Rose theme"></button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>E-Waste Management</h1>
+  <p>Understanding electronic waste, its impact, and how Extended Producer Responsibility (EPR) helps us recycle responsibly.</p>
+  <div class="id"><span>Anisha Anil Gaikwad</span><span>Roll No: 25102A2010</span><span>Topic: E-Waste</span></div>
+</div>
+
+<main>
+  <section id="about">
+    <h2>What is E-Waste?</h2>
+    <div class="card"><p>E-waste is any discarded electrical or electronic equipment, such as old phones, computers, batteries, chargers and household appliances. It contains valuable materials like copper and gold, but also harmful substances such as lead, mercury and cadmium that can pollute soil and water if disposed of improperly.</p></div>
+  </section>
+
+  <section id="types">
+    <h2>Common Categories</h2>
+    <div class="grid">
+      <div class="card"><h3>IT &amp; Telecom</h3><p>Laptops, desktops, monitors, mobile phones, routers and printers.</p></div>
+      <div class="card"><h3>Consumer Electronics</h3><p>Televisions, speakers, cameras, music players and gaming consoles.</p></div>
+      <div class="card"><h3>Home Appliances</h3><p>Refrigerators, washing machines, air conditioners and microwaves.</p></div>
+      <div class="card"><h3>Batteries &amp; Lighting</h3><p>Lithium-ion batteries, power banks, CFLs and LED lamps.</p></div>
+    </div>
+  </section>
+
+  <section id="impact">
+    <h2>Why It Matters</h2>
+    <div class="grid">
+      <div class="card"><h3>Environment</h3><p>Toxic metals leach into soil and groundwater; burning cables releases harmful fumes.</p></div>
+      <div class="card"><h3>Health</h3><p>Informal recycling exposes workers to hazardous chemicals without protection.</p></div>
+      <div class="card"><h3>Resources</h3><p>Recycling recovers precious metals and reduces the need for new mining.</p></div>
+    </div>
+  </section>
+
+  <section id="epr">
+    <h2>Extended Producer Responsibility (EPR)</h2>
+    <div class="card"><p>Under EPR, producers, manufacturers and importers are responsible for the collection and environmentally sound recycling of the electronics they place on the market. In India this is governed by the E-Waste (Management) Rules, 2022, which set recycling targets and require registration of producers, recyclers and refurbishers on a central portal.</p></div>
+    <div class="grid" style="margin-top:14px">
+      <div class="card"><h3>Reduce</h3><p>Buy only what you need and choose durable products.</p></div>
+      <div class="card"><h3>Reuse</h3><p>Repair, refurbish, donate or resell working devices.</p></div>
+      <div class="card"><h3>Recycle</h3><p>Hand over devices to authorised collection centres and recyclers.</p></div>
+    </div>
+  </section>
+
+  <section id="submissions">
+    <h2>My Submissions</h2>
+    <p style="color:var(--muted);margin-top:0">Open any activity below, upload your file, and it will appear in that activity’s list.</p>
+    <div id="subs"></div>
+  </section>
+</main>
+<footer>Made by Anisha Anil Gaikwad · 25102A2010 · Computer Engineering, VIT Mumbai</footer>
+
+<script>
+const root=document.documentElement;
+try{const t=localStorage.getItem('theme');if(t)root.dataset.t=t}catch(e){}
+document.querySelectorAll('.dot').forEach(b=>b.onclick=()=>{root.dataset.t=b.dataset.t;try{localStorage.setItem('theme',b.dataset.t)}catch(e){}});
+
+const $=id=>document.getElementById(id);
+let db=null,mem=[];
+function open(){return new Promise(res=>{try{const r=indexedDB.open('assign',1);r.onupgradeneeded=()=>r.result.createObjectStore('f',{keyPath:'id',autoIncrement:true});r.onsuccess=()=>{db=r.result;res()};r.onerror=()=>res()}catch(e){res()}})}
+function all(){return new Promise(res=>{if(!db)return res(mem);try{const q=db.transaction('f').objectStore('f').getAll();q.onsuccess=()=>res(q.result);q.onerror=()=>res(mem)}catch(e){res(mem)}})}
+function put(o){return new Promise(res=>{if(!db){o.id=Date.now()+Math.random();mem.push(o);return res()}try{const t=db.transaction('f','readwrite');t.objectStore('f').add(o);t.oncomplete=()=>res();t.onerror=()=>res()}catch(e){mem.push(o);res()}})}
+function del(id){return new Promise(res=>{if(!db){mem=mem.filter(x=>x.id!==id);return res()}try{const t=db.transaction('f','readwrite');t.objectStore('f').delete(id);t.oncomplete=()=>res()}catch(e){res()}})}
+const size=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+const GROUPS=[
+["ISA Activities",[
+["isa1","Assignment Zero_Check AAP"],
+["isa2","Assignment_2_Elemental Blueprint_In Class Activity"],
+["isa3","Assignment_1_State E Waste Tracker"],
+["isa4","PPT Upload for State wise E Waste Tracker"]]],
+["ESE Activities",[
+["ese1","Changes in the E Waste Recover Process Document"],
+["ese2","Indian Companies Following E waste Rules_5 case studies"],
+["ese3","New Start up Ideas_E Waste Rules and Regulations Comparison"],
+["ese4","E waste Campaign in College_Ideas submission Folder"],
+["ese5","LEED certification in India"],
+["ese6","Case Studies Submission"],
+["ese7","IEEE Paper Submission_In class activity"]]]];
+const ITEMS=GROUPS.flatMap(g=>g[1]);
+function show(f,prev){prev.style.display='block';prev.innerHTML='';const u=URL.createObjectURL(f.blob);
+  if(f.type.startsWith('image/')){const i=document.createElement('img');i.src=u;prev.append(i)}
+  else if(f.type==='application/pdf'){const i=document.createElement('iframe');i.src=u;prev.append(i)}
+  else prev.textContent='Preview is not available for this file type, but it is saved in your list.';
+  prev.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function build(){
+  const subs=$('subs');
+  GROUPS.forEach(([gname,items])=>{
+    const g=document.createElement('div');g.className='grp';
+    g.innerHTML='<h3></h3><div class="meta">Anisha Anil Gaikwad · 25102A2010 · E-Waste</div>';
+    g.querySelector('h3').textContent=gname;
+    items.forEach(([k,label])=>{
+      const d=document.createElement('details');d.className='item';d.id='sub-'+k;
+      d.innerHTML='<summary><span></span><span class="badge"></span></summary><div class="body"><div class="up"><div style="font-size:28px">📄</div><p><b>Drag &amp; drop your file here</b><br>PDF, Word, PowerPoint, images — any file</p><button class="p">Choose File</button><input type="file" multiple hidden></div><div class="files"></div><div class="prev"></div></div>';
+      d.querySelector('summary span').textContent=label;
+      const up=d.querySelector('.up'),inp=d.querySelector('input');
+      up.onclick=()=>inp.click();
+      up.querySelector('button').onclick=e=>{e.stopPropagation();inp.click()};
+      inp.onchange=e=>{add(k,[...e.target.files]);e.target.value=''};
+      ['dragover','dragenter'].forEach(ev=>up.addEventListener(ev,e=>{e.preventDefault();up.classList.add('drag')}));
+      ['dragleave','drop'].forEach(ev=>up.addEventListener(ev,e=>{e.preventDefault();up.classList.remove('drag')}));
+      up.addEventListener('drop',e=>add(k,[...e.dataTransfer.files]));
+      g.append(d)});
+    subs.append(g)})}
+async function render(){
+  const fs=await all();
+  ITEMS.forEach(([k])=>{
+    const box=$('sub-'+k),l=box.querySelector('.files'),prev=box.querySelector('.prev'),bg=box.querySelector('.badge');l.innerHTML='';
+    const mine=fs.filter(f=>f.cat===k);
+    bg.style.display=mine.length?'inline-block':'none';bg.textContent=mine.length+(mine.length>1?' files':' file')+' uploaded';
+    mine.forEach(f=>{const d=document.createElement('div');d.className='f';
+      d.innerHTML='<div><b></b><br><small></small></div><div><button data-a="v">Preview</button><button data-a="d">Delete</button></div>';
+      d.querySelector('b').textContent=f.name;d.querySelector('small').textContent=size(f.blob.size)+' · '+new Date(f.date).toLocaleDateString('en-IN');
+      d.querySelector('[data-a=v]').onclick=()=>show(f,prev);
+      d.querySelector('[data-a=d]').onclick=async()=>{await del(f.id);prev.style.display='none';render()};
+      l.append(d)})})}
+async function add(cat,files){for(const f of files)await put({cat,name:f.name,type:f.type,blob:f,date:Date.now()});render();const b=$('sub-'+cat);if(b)b.open=true}
+build();open().then(render);
+
+</script>
+</body>
+</html>
